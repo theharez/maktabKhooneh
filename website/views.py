@@ -5,7 +5,7 @@ from django.shortcuts import render
     return HttpResponse('<h1>Home page</h1>') """
     
 def home(request):
-    return render(request, 'index2.html')    
+    return render(request, 'index.html')    
 
 def about(request):
     return HttpResponse('<h1>About us</h1>')
