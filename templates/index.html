@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>bitcoin</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
 </head>
 
 <body>
@@ -15,7 +17,7 @@
 
         <header>
             <nav class="header">
-                <img src="images/logo-black.png" alt="" class="header-logo">
+                <img src="{% static 'img/logo-black.png' %}" alt="" class="header-logo">
                 <button class="header-menu-burger"><i class="fas fa-bars"></i></button>
                 <ul class="header-menu show">
                     <li class="header-menu-item"><a href="" class="header-menu-item-link">news</a></li>
@@ -169,7 +171,7 @@
                             RECENT NEWS
                         </h2>
                         <article>
-                            <img src="images/recent-news-1-600x450.jpg" alt="" class="main-news-img">
+                            <img src="{% static 'img/recent-news-1-600x450.jpg' %}" alt="" class="main-news-img">
                             <h3 class="article-title">
                                 <a href="#">
                                     2017 market performance 
@@ -206,7 +208,7 @@
 
                         <section class="main-news-w-50">
                             <article>
-                                <img src="images/crypto-news-2-600x450.jpg" alt="" class="main-news-img">
+                                <img src="{% static 'img/crypto-news-2-600x450.jpg' %}" alt="" class="main-news-img">
                                 <h3>
                                     <a href="#">
                                         2017 market performance 
@@ -227,7 +229,7 @@
 
                         <section class="main-news-w-50">
                             <article>
-                                <img src="images/crypto-news-1-600x450.jpg" alt="" class="main-news-img">
+                                <img src="{% static 'img/crypto-news-1-600x450.jpg' %}" alt="" class="main-news-img">
                                 <h3>
                                     <a href="#">
                                         2017 market performance 
@@ -281,7 +283,7 @@
                             </h2>
 
                             <section class="popular-post">
-                                <img src="images/polular-1-100x100.jpg" alt="" class="popular-post-img">
+                                <img src="{% static 'img/polular-1-100x100.jpg' %}" alt="" class="popular-post-img">
                                 <section class="popular-post-title">
                                     <h3><a href="#"><b> bitcoin bilioners hiding in plane sight and make it 
                                         very good and </b></a></h3>
@@ -299,7 +301,7 @@
                             </section>
 
                             <section class="popular-post">
-                                <img src="images/polular-2-100x100.jpg" alt="" class="popular-post-img">
+                                <img src="{% static 'img/polular-2-100x100.jpg' %}" alt="" class="popular-post-img">
                                 <section class="popular-post-title">
                                     <h3><a href="#"><b> bitcoin bilioners hiding in plane sight and make it 
                                         very good and </b></a></h3>
@@ -317,7 +319,7 @@
                             </section>
 
                             <section class="popular-post">
-                                <img src="images/polular-3-100x100.jpg" alt="" class="popular-post-img">
+                                <img src="{% static 'img/polular-3-100x100.jpg' %}" alt="" class="popular-post-img">
                                 <section class="popular-post-title">
                                     <h3><a href="#"><b> bitcoin bilioners hiding in plane sight and make it 
                                         very good and </b></a></h3>
@@ -336,7 +338,7 @@
 
 
                             <section class="popular-post">
-                                <img src="images/polular-4-100x100.jpg" alt="" class="popular-post-img">
+                                <img src="{% static 'img/polular-4-100x100.jpg' %}" alt="" class="popular-post-img">
                                 <section class="popular-post-title">
                                     <h3><a href="#"><b> bitcoin bilioners hiding in plane sight and make it 
                                         very good and </b></a></h3>
@@ -385,7 +387,7 @@
             <section class="fotter-row">
 
                 <section class="fotter-col">
-                    <img src="images/logo-white.png" alt="" class="fotter-logo">
+                    <img src="{% static 'img/logo-white.png' %}" alt="" class="fotter-logo">
                     <section class="clear-fix"></section>
                     <p class="fotter-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                          Ullam recusandae facilis ut voluptatem id,
