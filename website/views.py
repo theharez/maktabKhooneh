@@ -8,7 +8,7 @@ def home(request):
     return render(request, 'main_page/index.html')    
 
 def about(request):
-    return HttpResponse('<h1>About us</h1>')
+    return HttpResponse(request, 'main_page/about.html')
     
 def contact(request):
-    return HttpResponse('<h1>Contact us</h1>')
+    return render(request, 'main_page/contact.html')
