@@ -62,12 +62,12 @@
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
+                        <li><a href="{% url 'website:home_view' %}">Home</a></li>
+                        <li><a href="{% url 'website:about_view' %}">About</a></li>
                         <li class="menu-has-children"><a href="">Blog</a>
                             <ul>
-                                <li><a href="blog-home.html">Blog Home</a></li>
-                                <li><a href="blog-single.html">Blog Single</a></li>
+                                <li><a href="{% url 'blog:blog_home_view' %}">Blog Home</a></li>
+                                <li><a href="{% url 'blog:blog_single_view' %}">Blog Single</a></li>
                             </ul>
                         </li>
                         <li class="menu-has-children"><a href="">Pages</a>
@@ -81,7 +81,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{% url 'website:contact_view' %}">Contact</a></li>
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
