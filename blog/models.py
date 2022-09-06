@@ -9,3 +9,6 @@ class Post(models.Model):
     created_data = models.DateTimeField(auto_now_add=True)
     updated_data = models.DateTimeField(auto_now=True)
     published_data = models.DateTimeField(null=True)
+
+    def __str__(self):
+        return self.title
