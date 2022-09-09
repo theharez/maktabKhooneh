@@ -8,7 +8,7 @@ class Post_Admin(admin.ModelAdmin):
     empty_value_display = '-'   # unpublished posts
     list_display = ('title', 'status', 'created_data', 'views', 'published_data')   # columns to show 
     list_filter = ('status', )  # acsending or deseding sorting
-    ordering = ('created_data',)    # ordering by
+    # ordering = ('created_data',)    # ordering by
     search_fields = ['title', 'content']    # looking for an expression in the title or the content
     
 admin.site.register(Post, Post_Admin)
