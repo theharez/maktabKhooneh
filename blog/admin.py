@@ -12,4 +12,3 @@ class Post_Admin(admin.ModelAdmin):
     search_fields = ['title', 'content']    # looking for an expression in the title or the content
     
 admin.site.register(Post, Post_Admin)
-
