@@ -8,7 +8,7 @@ def blog_home_view(request):
     return render(request, 'blog/blog-home.html', context)
 
 def blog_single_view(request, pid):
-    single = get_object_or_404(Post, id=pid, status=True)
+    single = get_object_or_404(Post, id=pid, status=True, published_data__lte=timezone.now())
     single.views +=1 
     single.save()
     context = {'single': single}
