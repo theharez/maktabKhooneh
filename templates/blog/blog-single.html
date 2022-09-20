@@ -65,7 +65,7 @@
 				</h1>
 				<p class="text-white link-nav"><a href="{% url 'website:home_view' %}">Home </a> <span
 						class="lnr lnr-arrow-right"></span><a href="{% url 'blog:blog_home_view' %}">Blog </a> <span
-						class="lnr lnr-arrow-right"></span> <a href="{% url 'blog:blog_single_view' pid=single.id %"> {{single.title}}</p>
+						class="lnr lnr-arrow-right"></span> <a href="{% url 'blog:blog_single_view' pid=single.id name=single.title %}"> {{single.title}}</p>
 			</div>
 		</div>
 	</div>
@@ -91,7 +91,7 @@
 							<li><a href="#">Lifestyle</a></li>
 						</ul>
 						<div class="user-details row">
-							<p class="user-name col-lg-12 col-md-12 col-6"><a href="#">Mark wiens</a> <span
+							<p class="user-name col-lg-12 col-md-12 col-6"><a href="#">{{single.author.get_full_name}}</a> <span
 									class="lnr lnr-user"></span></p>
 							<p class="date col-lg-12 col-md-12 col-6"><a href="#">{{single.published_data}}</a> <span
 									class="lnr lnr-calendar-full"></span></p>
