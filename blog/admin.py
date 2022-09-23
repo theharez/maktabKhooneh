@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import Post
+from blog.models import Post, Category
 
 # Register your models here.
 class Post_Admin(admin.ModelAdmin):
@@ -12,3 +12,4 @@ class Post_Admin(admin.ModelAdmin):
     search_fields = ['title', 'content']    # looking for an expression in the title or the content
     
 admin.site.register(Post, Post_Admin)
+admin.site.register(Category)
