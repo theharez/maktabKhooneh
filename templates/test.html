@@ -1,0 +1,22 @@
+{% load blog_custome_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <h1>unoperation page</h1>
+    <p>say hi MESSAGE : {% say_hi %} </p>
+    <p>sum MESSAGE : {% plus_self 12 %} </p>
+    {% posts as tp %}
+    {% for post in tp %}
+        <p>{{post}}</p>
+    {% endfor %}
+    <p></p>
+    {% popular_posts %}
+    
+</body>
+</html>
