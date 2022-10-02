@@ -11,7 +11,7 @@
                 <a href="{% url 'blog:blog_single_view' pid=post.id %}">
                     <h6>{{post.title}}</h6>
                 </a>
-                <p>{{post.published_data|date:'G:i'}}</p>
+                <p>{{post.published_data|date:'d-m-y  G:i'}}</p>
             </div>
         </div>
         {% endfor %}
