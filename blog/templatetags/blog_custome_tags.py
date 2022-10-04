@@ -1,4 +1,3 @@
-from unicodedata import category
 from django import template
 from blog.models import Post
 from blog.models import Category
@@ -29,7 +28,7 @@ def func():
 
 @register.inclusion_tag('blog/blog-latest-posts.html', name='latest')
 def latest_posts():
-    posts = Post.objects.filter(status=1).order_by('-published_data')[:2]
+    posts = Post.objects.filter(status=1).order_by('-published_data')[:3]
     return {'posts': posts}
 
 
