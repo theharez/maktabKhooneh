@@ -22,7 +22,7 @@ class Post(models.Model):
     published_data = models.DateTimeField(null=True)
     
     class Meta:
-        ordering = ['status',]
+        ordering = ['-published_data',]
 
     def __str__(self):
         return self.title
