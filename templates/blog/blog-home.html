@@ -138,11 +138,7 @@
 						{% endif %}
 
 						{% for i in posts.paginator.page_range %}
-							{% if posts.number == i %}
-								<li class="page-item"><a href="?page={{i}}" class="page-link">{{i}}</a></li>
-							{% else %}
 							<li class="page-item"><a href="?page={{i}}" class="page-link">{{i}}</a></li>
-							{% endif %}
 						{% endfor %}
 
 						{% if posts.has_next %}
