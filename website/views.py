@@ -32,6 +32,7 @@ def news_letter_page(request):
     if request.method == 'POST':
         form = news_letter_form(request.POST)
         if form.is_valid():
+            messages.add_message(request, messages.SUCCESS, 'We will infrom you')
             form.save()
             return HttpResponseRedirect('/')
     else:
