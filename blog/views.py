@@ -10,6 +10,8 @@ def blog_home_view(request, **kwargs):
         posts = posts.filter(category__name=kwargs['cat_name'])
     if kwargs.get('author_name') != None:
         posts = posts.filter(author__username=kwargs['author_name'])
+    if kwargs.get('tag_name') != None:
+        posts = posts.filter(tags__name__in=[kwargs['tag_name']])
         
     posts = Paginator(posts, 3)
     page_number = request.GET.get('page')
