@@ -43,7 +43,12 @@ INSTALLED_APPS = [
     'django_extensions',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-    'robots'
+    'robots',
+    'debug_toolbar',
+    'taggit',
+    'django_summernote',
+    'captcha'
+    
 ]
 
 SITE_ID = 2
@@ -58,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'main.urls'
@@ -134,6 +140,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 STATICFILES_DIRS = [
     BASE_DIR/'assets',
+]
+
+INTERNAL_IPS = [
+    "127.0.0.1",
 ]
 
 
