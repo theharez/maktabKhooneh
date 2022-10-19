@@ -113,7 +113,7 @@
 					<div class="col-lg-9 col-md-9">
 						<h3 class="mt-20 mb-20">{{single.title}}</h3>
 						<p class="excert">
-							{{single.content}}
+							{{single.content|safe}}
 						</p>
 					</div>
 
@@ -291,6 +291,7 @@
 					{% include 'blog/blog-search.html' %}
 					{% include 'blog/blog-writer.html' %}
 					{% latest %}
+					{% include 'blog/blog-single-tags.html' %}
 					<div class="single-sidebar-widget ads-widget">
 						<a href="#"><img class="img-fluid" src="{% static 'img/blog/ads-banner.jpg' %}" alt=""></a>
 					</div>
@@ -318,23 +319,6 @@
 						<p class="text-bottom">
 							You can unsubscribe at any time
 						</p>
-					</div>
-					<div class="single-sidebar-widget tag-cloud-widget">
-						<h4 class="tagcloud-title">Tag Clouds</h4>
-						<ul>
-							<li><a href="#">Technology</a></li>
-							<li><a href="#">Fashion</a></li>
-							<li><a href="#">Architecture</a></li>
-							<li><a href="#">Fashion</a></li>
-							<li><a href="#">Food</a></li>
-							<li><a href="#">Technology</a></li>
-							<li><a href="#">Lifestyle</a></li>
-							<li><a href="#">Art</a></li>
-							<li><a href="#">Adventure</a></li>
-							<li><a href="#">Food</a></li>
-							<li><a href="#">Lifestyle</a></li>
-							<li><a href="#">Adventure</a></li>
-						</ul>
 					</div>
 				</div>
 			</div>
