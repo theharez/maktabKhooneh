@@ -20,9 +20,9 @@ def contact_page(request):
         request.POST['name'] = 'Unkown'
         form = ContactForm(request.POST)
         if form.is_valid():
-            human = True
-            form.save()
             messages.add_message(request, messages.SUCCESS, 'Your ticket has been submitted')
+            form.save()
+            
         else:
             messages.add_message(request, messages.ERROR, "Your ticket has not been submitted")
     form = ContactForm()
