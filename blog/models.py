@@ -18,7 +18,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='blog/', default='blog/2switch.png')
     created_data = models.DateTimeField(auto_now_add=True)
     updated_data = models.DateTimeField(auto_now=True)
-    published_data = models.DateTimeField(null=True)
+    published_data = models.DateTimeField(null=True)    
     class Meta:
         ordering = ['-published_data',]
 
@@ -27,3 +27,19 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return reverse('blog:blog_single_view', kwargs={'pid': self.id})
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+    
+    class Meta:
+        ordering = ('-created_date',)
+    
+    def __str__(self):
+        return (f'{self.name} / {self.subject}')
