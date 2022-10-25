@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
-from blog.models import Post
+from blog.models import Post, Comment
 from django.utils import timezone
 from django.core.paginator import Paginator, InvalidPage
 
@@ -42,16 +42,16 @@ def blog_single_view(request, pid):
     except:
         context.update({'single': single})
         
+    comments = Comment.objects.filter(post=pid, approved=True)
+    context.update({'comments': comments})
     return render(request, 'blog/blog-single.html', context)
 
 
 def blog_search(request):
     posts = Post.objects.filter(published_data__lte=timezone.now(), status=True)
-        
     if request.method == 'GET':
         if search := request.GET.get('search'):
             posts = posts.filter(content__contains=search)
-            
     context = {'posts': posts} 
     return render(request, 'blog/blog-home.html', context)
 
