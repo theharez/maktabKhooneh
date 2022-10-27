@@ -22,7 +22,6 @@ def contact_page(request):
         if form.is_valid():
             messages.add_message(request, messages.SUCCESS, 'Your ticket has been submitted')
             form.save()
-            
         else:
             messages.add_message(request, messages.ERROR, "Your ticket has not been submitted")
     form = ContactForm()
