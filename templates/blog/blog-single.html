@@ -117,7 +117,6 @@
 							{{single.content|safe}}
 						</p>
 					</div>
-
 				</div>
 				<div class="navigation-area">
 					<div class="row">
@@ -216,7 +215,30 @@
 					<h3>No comments yet</h3>
 					{% endfor %}
 				</div>
+				<div class="comment-form">
+					<h4>Leave a Comment</h4>
+					<form method="post" action="{% url 'blog:blog_single_view' pid=single.id %}">
+						{% csrf_token %}
+						<input type="hidden" name="post" value={{single.id}}>
+						<div class="form-group form-inline">
+							<div class="form-group col-lg-6 col-md-12 name">
+								<input type="text" class="form-control" name="name" placeholder="Enter Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
+							</div>
+							<div class="form-group col-lg-6 col-md-12 email">
+								<input type="email" class="form-control" name="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
+							</div>										
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" name="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'">
+						</div>
+						<div class="form-group">
+							<textarea class="form-control mb-10" rows="5" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+						</div>
+						<button type="submit" class="primary-btn text-uppercase">Post Comment</button>	
+					</form>
+				</div>
 			</div>
+			
 			<div class="col-lg-4 sidebar-widgets">
 				<div class="widget-wrap">
 					{% include 'blog/blog-search.html' %}
