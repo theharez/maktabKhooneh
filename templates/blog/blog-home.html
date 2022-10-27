@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load blog_custome_tags %}
+
 {% block content %}
-
-
 <!-- start banner Area -->
 <section class="banner-area relative blog-home-banner" id="home">
 	<div class="overlay overlay-bg"></div>
@@ -16,6 +15,7 @@
 				</h1>
 				<p class="text-white">
 					There is a moment in the life of any aspiring astronomer that it is time to buy that first
+					
 				</p>
 			</div>
 		</div>
@@ -106,7 +106,7 @@
 							<p class="date col-lg-12 col-md-12 col-6"><a href="#">{{post.published_data|date:'d-M-Y G:i'}}</a> <span class="lnr lnr-calendar-full"></span></p>
 							<p class="view col-lg-12 col-md-12 col-6"><a href="#">{{post.views}} Views</a> <span
 									class="lnr lnr-eye"></span></p>
-							<p class="comments col-lg-12 col-md-12 col-6"><a href="#">{{comments}} Comments</a> <span
+							<p class="comments col-lg-12 col-md-12 col-6"><a href="#">{% comment pid=post.id %} Comments</a> <span
 									class="lnr lnr-bubble"></span></p>
 						</div>
 					</div>
