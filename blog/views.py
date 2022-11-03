@@ -4,8 +4,9 @@ from django.utils import timezone
 from django.core.paginator import Paginator, InvalidPage
 from blog.forms import CommentForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def blog_home_view(request, **kwargs):    
     posts = Post.objects.filter(published_data__lte=timezone.now(), status=True)
     
