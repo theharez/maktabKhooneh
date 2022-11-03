@@ -1,0 +1,30 @@
+{% load static %}
+<!-- <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"> -->
+<link href="{% static 'css/login.css' %}" rel="stylesheet">
+<!-- <script src="{% static 'js/bootstrap.min.js ' %}"></script> -->
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+    <title>Signup</title>
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+
+        <!-- Login Form -->
+        <form method="post" action="{% url 'users:signup' %}">
+            {% csrf_token %}
+            <input type="text" class="fadeIn second" name="username" placeholder="Username">
+            <input type="password" class="fadeIn third" name="password1" placeholder="Password">
+            <input type="password" class="fadeIn third" name="password2" placeholder="confirmation">
+            <input type="submit" class="fadeIn fourth" value="Sign Up">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+
+    </div>
+</div>
