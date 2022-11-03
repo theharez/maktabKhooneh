@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.decorators import login_required
+
 
 
 def login_view(request):
@@ -13,7 +15,6 @@ def login_view(request):
             return redirect('/')
         else:    
             return render(request, 'users/login.html') """
-    
     form = AuthenticationForm()
     if not request.user.is_authenticated:
         if request.method == 'POST':
@@ -30,8 +31,21 @@ def login_view(request):
     else:
         return redirect('/')
 
+@login_required()
 def logout_view(request):
-    return render(request, 'users/logout.html')
+    logout(request)
+    return redirect('/')
+    
 
-def singup_view(request):
-    return render(request, 'users/singup.html')
+def signup_view(request):
+    if not request.user.is_authenticated:
+        form = UserCreationForm()
+        if request.method == 'POST':
+            form = UserCreationForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('/')
+        context = {'form': form}
+        return render(request, 'users/signup.html', context)
+    else:
+        return redirect('/')
