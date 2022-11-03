@@ -41,10 +41,11 @@
                     <div class="col-lg-6 col-sm-6 col-6 header-top-left">
                         <ul>
                             {% if request.user.is_authenticated %}
-                                
-                                <li><a href="#">Logged in as {{request.user.username}}</a></li>
+                                <li><a href="#"><h6 style="color : white">Logged in as {{request.user.username}}</h6></a></li>
+                                <li><a href="{% url 'users:logout' %}"><h6 style="color: red">Logout</h6></a></li>
                             {% else %}
-                                <li><a href="{% url 'users:login' %}"><h4 style="color: wheat">Log in</h4></a></li>
+                                <li><a href="{% url 'users:login' %}"><h6 style="color: white">Login</h6></a></li>
+                                <li><a href="{% url 'users:signup' %}"><h6 style="color: white">Signup</h6></a></li>
                             {% endif %}
                         </ul>
                     </div>
