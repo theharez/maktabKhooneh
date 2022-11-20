@@ -1,12 +1,12 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404, HttpResponseRedirect
 from blog.models import Post, Comment
 from django.utils import timezone
 from django.core.paginator import Paginator, InvalidPage
 from blog.forms import CommentForm
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
-@login_required
+
 def blog_home_view(request, **kwargs):    
     posts = Post.objects.filter(published_data__lte=timezone.now(), status=True)
     
@@ -30,34 +30,37 @@ def blog_home_view(request, **kwargs):
 
 
 def blog_single_view(request, pid):
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            messages.add_message(request, messages.SUCCESS, 'Your comment has been submitted')
-            form.save()
-        else:
-            messages.add_message(request, messages.ERROR, "Your comment has not been submitted")
-    form = CommentForm()
-    
     single = get_object_or_404(Post, id=pid, status=True, published_data__lte=timezone.now())
-    single.views +=1 
-    context = {'single': single}
-    
-    try:
-        next = get_list_or_404(Post, id__gt=single.id, published_data__lte=timezone.now(), status=True)
-        context.update({'single': single, 'next':next[0]})
-    except:
-        context = {'single': single}    
-    try:
-        prev = get_list_or_404(Post, id__lt=single.id, published_data__lte=timezone.now(), status=True)
-        context.update({'single': single, 'prev':prev[-1]})
-    except:
-        context.update({'single': single})
-    
-    single.save()
-    comments = Comment.objects.filter(post=pid, approved=True)
-    context.update({'comments': comments, 'form':form})
-    return render(request, 'blog/blog-single.html', context)
+    if single.need_to_login and not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('login'))
+    else:
+        single.views +=1 
+        single.save()
+        
+        form = CommentForm()
+        if request.method == 'POST':
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                messages.add_message(request, messages.SUCCESS, 'Your comment has been submitted')
+                form.save()
+            else:
+                messages.add_message(request, messages.ERROR, "Your comment has not been submitted")
+                
+        comments = Comment.objects.filter(post=pid, approved=True)
+        context = {'single': single, 'comments': comments, 'form':form}
+        
+        try:
+            next = get_list_or_404(Post, id__gt=single.id, published_data__lte=timezone.now(), status=True)
+            context.update({'next':next[0]})
+        except:
+            pass    
+        try:
+            prev = get_list_or_404(Post, id__lt=single.id, published_data__lte=timezone.now(), status=True)
+            context.update({'prev':prev[-1]})
+        except:
+            pass
+            
+        return render(request, 'blog/blog-single.html', context)
 
 
 def blog_search(request):
