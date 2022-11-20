@@ -42,9 +42,9 @@
                         <ul>
                             {% if request.user.is_authenticated %}
                                 <li><a href="#"><h6 style="color : rgb(255, 255, 255)">Logged in as {{request.user.username}}</h6></a></li>
-                                <li><a href="{% url 'logout' %}"><h6 style="color: red">Logout</h6></a></li>
+                                <li><a href="{% url 'users:logout' %}"><h6 style="color: red">Logout</h6></a></li>
                             {% else %}
-                                <li><a href="{% url 'login' %}"><h4 style="color: yellow">Login</h4></a></li>
+                                <li><a href="{% url 'users:login' %}"><h4 style="color: yellow">Login</h4></a></li>
                                 
                             {% endif %}
                         </ul>
