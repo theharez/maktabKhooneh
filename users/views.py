@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
 
 
@@ -44,7 +45,7 @@ def signup_view(request):
             form = UserCreationForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect('/')
+                return HttpResponseRedirect(reverse('users:login'))
         context = {'form': form}
         return render(request, 'users/signup.html', context)
     else:
