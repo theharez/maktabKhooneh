@@ -15,6 +15,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True) # or (on_delete=models.SET_NULL)
     category = models.ManyToManyField(Category)
     status = models.BooleanField(default=False)
+    need_to_login = models.BooleanField(default=False)
     image = models.ImageField(upload_to='blog/', default='blog/2switch.png')
     created_data = models.DateTimeField(auto_now_add=True)
     updated_data = models.DateTimeField(auto_now=True)
