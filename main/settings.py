@@ -20,12 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@3f9047ghu#2ae6o&f4&l)w7qn2(-7q@%8+g+yo^bx9s!(6n98'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -57,7 +52,7 @@ INSTALLED_APPS = [
 MULTI_CAPTCHA_ADMIN = {
     'engine': 'simple-captcha',
 }
-SITE_ID = 2
+
 
 ROBOTS_USE_HOST = False
 
@@ -91,18 +86,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'main.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -139,19 +122,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
-STATICFILES_DIRS = [
-    BASE_DIR/'assets',
-]
 
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -159,3 +135,5 @@ INTERNAL_IPS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL= '/users/login'
+
+CSRF_COOKIE_SECURE = True 
