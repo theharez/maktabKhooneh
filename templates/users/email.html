@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>send email</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <form method="post" action="{% url 'users:email' %}">
+            {% csrf_token %}
+            <input type="text" class="fadeIn second" name="email" placeholder="Email">
+            <input type="submit" class="fadeIn fourth" value="Change">
+        </form>
+        {% include 'base-message.html' %}
+        <script src="" async defer></script>
+    </body>
+</html>
