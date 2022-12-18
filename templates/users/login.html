@@ -8,22 +8,15 @@
 <div class="wrapper fadeInDown">
     <title>Login</title>
     <div id="formContent">
-        <!-- Tabs Titles -->
-
-        <!-- Icon -->
-
-        <!-- Login Form -->
         <form method="post" action="{% url 'users:login' %}">
             {% csrf_token %}
-            <input type="text" class="fadeIn second" name="username" placeholder="Username">
+            <input type="text" class="fadeIn second" name="entry_method" placeholder="Username or Email">
             <input type="password" class="fadeIn third" name="password" placeholder="Password">
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
-
-        <!-- Remind Passowrd -->
+        {% include 'base-message.html' %}
         <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
+            <a class="underlineHover" href="{% url 'users:email' %}">Forgot Password?</a>
         </div>
-
     </div>
 </div>
