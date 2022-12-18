@@ -13,13 +13,16 @@
         <!-- Icon -->
 
         <!-- Login Form -->
-        <form method="post" action="{% url 'users:signup' %}">
+        <form method="POST" action="{% url 'users:signup' %}">
             {% csrf_token %}
             <input type="text" class="fadeIn second" name="username" placeholder="Username">
+            <input name="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
             <input type="password" class="fadeIn third" name="password1" placeholder="Password">
             <input type="password" class="fadeIn third" name="password2" placeholder="confirmation">
-            <input type="submit" class="fadeIn fourth" value="Sign Up">
+            <input type="submit" class="fadeIn fourth" value="SignUp"> 
+            {% include 'base-message.html'%}
         </form>
+        
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
