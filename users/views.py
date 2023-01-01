@@ -8,10 +8,9 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, HttpResponseRedirect
-# from django.contrib.auth.forms import AuthenticationForm
 
 
-def login_view(request):
+def login_view(request):                                              
     if not request.user.is_authenticated:
         if request.method == 'POST':
             entry_method = request.POST.get('entry_method')
@@ -32,7 +31,6 @@ def login_view(request):
                     login(request, user)
                     return redirect('/')
                 else:
-                    print('nashod')
                     messages.add_message(request, messages.INFO, 'Incorrect username or password')
                     return render(request, 'users/login.html')
     return render(request, 'users/login.html')
@@ -42,17 +40,12 @@ def signup_view(request):
     if not request.user.is_authenticated:
         form = user_creation_form()
         if request.method == 'POST':
-            print('post bood')
             form = user_creation_form(request.POST)
             if form.is_valid():
-                print('valid bood')
                 form.save()
                 return HttpResponseRedirect(reverse('users:login'))
             else:
                 messages.add_message(request, messages.ERROR, form.errors)
-                print('valid nabood')
-        else:
-            print('post nab ood')
         context = {'form': form}
         return render(request, 'users/signup.html', context)
     else:
