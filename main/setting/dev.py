@@ -5,7 +5,7 @@ SECRET_KEY = 'django-insecure-@3f9047ghu#2ae6o&f4&l)w7qn2(-7q@%8+g+yo^bx9s!(6n98
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://djnago-harez.onrender.com', 'djnago-harez.onrender.com']
 
 SITE_ID = 2
 
