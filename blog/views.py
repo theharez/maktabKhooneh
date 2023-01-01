@@ -66,7 +66,8 @@ def blog_single_view(request, pid):
 def blog_search(request):
     posts = Post.objects.filter(published_data__lte=timezone.now(), status=True)
     if request.method == 'GET':
-        if search := request.GET.get('search'):
+        if request.GET.get('search')
+            search = request.GET.get('search')
             posts = posts.filter(content__contains=search)
     context = {'posts': posts} 
     return render(request, 'blog/blog-home.html', context)
